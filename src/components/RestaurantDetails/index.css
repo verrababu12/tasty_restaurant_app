@@ -1,0 +1,174 @@
+/* Container */
+.restaurant-details {
+  text-align: center;
+  padding: 20px;
+}
+
+.restaurant-header {
+  background-color: #8fbdf1; /* Background color */
+  color: white; /* Text color */
+  text-align: center;
+  padding: 30px 10px;
+  border-radius: 10px;
+}
+
+.restaurant-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.restaurant-category {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.restaurant-location,
+.restaurant-rating {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Food Items Container */
+.food-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Food Card */
+.food-card {
+  flex: 1 1 250px; /* Makes each card occupy only necessary space */
+  max-width: 300px; /* Prevents cards from stretching too wide */
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffebcd;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.food-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Prevent hover effect on quantity icons */
+.food-card:hover .quantity-container {
+  transform: none;
+}
+
+/* Food Image */
+.food-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+/* Food Name */
+.food-card h4 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Food Price */
+.food-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Quantity Container */
+.quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* Quantity Button */
+.quantity-controller-button {
+  all: unset; /* Removes any default button styling */
+  cursor: pointer;
+}
+
+/* Quantity Icons */
+.quantity-controller-icon {
+  font-size: 18px;
+  color: #ff5733;
+}
+
+/* Prevent hover effect on quantity icons */
+.quantity-controller-icon:hover {
+  color: inherit;
+}
+.quantity-controller-button:hover {
+  background: none;
+}
+
+/* Quantity Number */
+.quantity {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ff5733;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #d4411e;
+}
+
+/* Loader */
+.products-details-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .food-container {
+    justify-content: center; /* Centers items on small screens */
+  }
+
+  .food-card {
+    flex: 1 1 180px; /* Adjusts card size for smaller screens */
+    max-width: 200px;
+    padding: 8px;
+  }
+
+  .food-card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .restaurant-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .restaurant-category {
+    font-size: 18px;
+  }
+
+  .restaurant-location,
+  .restaurant-rating {
+    font-size: 14px;
+  }
+}

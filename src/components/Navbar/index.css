@@ -1,0 +1,238 @@
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* Reduced padding for a slimmer navbar */
+  background: linear-gradient(
+    90deg,
+    #34495e,
+    #2c3e50
+  ); /* New darker gradient background */
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: 30px;
+}
+
+.nav-links li {
+  margin: 0 10px; /* Slightly reduced margin */
+}
+
+.cart-count-badge {
+  background-color: #ff4f5a;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-left: 5px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 17px;
+  font-family: "BreeSerif", sans-serif;
+  transition: all 0.3s ease-in-out;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  color: #ff4f5a;
+  background: #fff;
+}
+
+/* Logout Button */
+.logout-btn {
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  padding: 6px 12px; /* Reduced padding for a more compact button */
+  border-radius: 6px;
+  font-weight: 500;
+  background: #ff4f5a;
+  transition: background 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: #d63a4d;
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+}
+
+.menu-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show menu icon on mobile */
+  }
+
+  .logout-btn {
+    width: auto; /* Auto width for better flexibility */
+    height: auto;
+    padding: 10px 15px; /* Adjusted padding for better touch response */
+    font-size: 16px; /* Slightly increased font size */
+    text-align: center;
+    display: inline-block; /* Ensures proper alignment */
+    margin: 10px auto; /* Centers button if needed */
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(
+      52,
+      73,
+      94,
+      0.95
+    ); /* Darker background matching the updated palette */
+    text-align: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 10px 10px;
+    z-index: 1;
+  }
+
+  .nav-links li {
+    padding: 12px; /* Reduced padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px; /* Slightly smaller font size */
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* Heading Styling */
+.heading-tasty {
+  font-size: 25px;
+  font-weight: 800;
+  color: #f3a034;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.log-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #d6b824;
+      color: rgb(17, 15, 15);
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+    
+    .nav-links li {
+      margin: 0 15px;
+    }
+    .cart-count-badge {
+      background-color: #e6f6ff;
+      margin-left: 5px;
+      border-radius: 4px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgb(11, 12, 12);
+      font-size: 17px;
+      transition: color 0.3s;
+      font-family: "BreeSerif";
+    }
+    
+    .nav-links a:hover {
+      color: #e752bd;
+    }
+    
+    .logout-btn {
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-family: "Roboto";
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      background-color: #f7931e;
+    }
+    
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+    }
+    
+    .menu-icon img {
+      width: 30px;
+      height: 30px;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+    
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #2ed545;
+        text-align: center;
+      }
+    
+      .nav-links li {
+        padding: 15px;
+        border-bottom: 1px solid #444;
+      }
+    
+      .nav-links.active {
+        display: flex;
+      }
+    } */

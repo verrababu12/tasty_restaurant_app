@@ -1,0 +1,140 @@
+/* General Heading */
+.user-bg-container {
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.restaurants-heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: "DM Sans";
+  margin: 20px 0;
+  color: #333;
+}
+.restaurant-card p {
+  font-family: "BreeSerif";
+}
+.restaurant-category {
+  font-family: "DM Sans";
+}
+
+/* Search & Sort Container */
+.search-container,
+.sort-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 600px;
+}
+.sort-container label {
+  font-family: "DM Sans";
+}
+/* Search Input */
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 2px solid #ffa726;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #fb8c00;
+}
+
+/* Sort Dropdown */
+.sort-container label {
+  font-weight: bold;
+}
+
+.sort-select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ffa726;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sort-select:focus {
+  border-color: #fb8c00;
+}
+
+/* Restaurants Grid */
+.restaurants-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Restaurant Card */
+.restaurant-card {
+  flex: 1 1 250px; /* Makes each card occupy only necessary space */
+  max-width: 300px; /* Prevents cards from stretching too wide */
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffebcd;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.05);
+}
+
+/* Restaurant Image */
+.restaurant-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Remove Link Styles */
+.restaurant-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Loader */
+.products-details-loader-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-container,
+  .sort-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-input,
+  .sort-select {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .restaurants-grid {
+    justify-content: center; /* Centers items on small screens */
+  }
+
+  .restaurant-card {
+    flex: 1 1 180px; /* Adjusts card size for smaller screens */
+    max-width: 200px;
+    padding: 8px;
+  }
+}

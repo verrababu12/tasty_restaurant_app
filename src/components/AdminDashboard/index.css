@@ -1,0 +1,138 @@
+/* Admin Dashboard Styling */
+.admin-dashboard {
+  font-family: "Poppins", sans-serif;
+  background-color: #5ea1e4;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add-product-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-product-btn:hover {
+  background-color: #218838;
+}
+
+.dashboard-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-size: 22px;
+  color: #444;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.user-list,
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item,
+.product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px; /* Space between elements */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.button-container {
+  display: flex;
+  gap: 5px; /* Space between buttons */
+}
+
+.make-admin-btn,
+.edit-btn,
+.delete-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.make-admin-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.editButton {
+  background-color: #ffc107;
+  color: black;
+  text-align: center;
+  border: none;
+  width: 105px;
+  height: 45px;
+  border-radius: 4px;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  width: 105px;
+  height: 45px;
+  border-radius: 4px;
+}
+
+.make-admin-btn:hover {
+  background-color: #0056b3;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.loading-text,
+.no-data-text,
+.error-text {
+  text-align: center;
+  color: #777;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .user-item,
+  .product-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .make-admin-btn,
+  .edit-btn,
+  .delete-btn {
+    margin-top: 5px;
+    width: 100%;
+  }
+}
