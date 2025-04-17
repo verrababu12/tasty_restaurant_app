@@ -74,18 +74,25 @@ const UserDashboard = () => {
 
       {/* Restaurants Grid */}
       <div className="restaurants-grid">
-        {filteredRestaurants.length > 0 ? (
+        {restaurants.length === 0 ? (
+          <div
+            className="products-details-loader-container"
+            data-testid="loader"
+          >
+            <ClipLoader color="#0b69ff" height="50" width="50" />
+          </div>
+        ) : filteredRestaurants.length > 0 ? (
           filteredRestaurants.map((restaurant) => (
             <Link
               to={`/restaurant/${restaurant._id}`}
               key={restaurant._id}
               className="restaurant-link"
             >
-              <div className="restaurant-card">
+              <div className="restaurant-card-user">
                 <img
                   src={restaurant.image_url}
                   alt="restaurant"
-                  className="restaurant-image"
+                  className="restaurant-image-users"
                 />
                 <h3 className="restaurant-category">{restaurant.category}</h3>
                 <p>{restaurant.location}</p>
@@ -97,14 +104,10 @@ const UserDashboard = () => {
             </Link>
           ))
         ) : (
-          <div
-            className="products-details-loader-container"
-            data-testid="loader"
-          >
-            <ClipLoader color="#0b69ff" height="50" width="50" />
-          </div>
+          <p className="no-results-text">No results found.</p>
         )}
       </div>
+
       <Footer />
     </div>
   );

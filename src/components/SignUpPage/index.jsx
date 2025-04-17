@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import "./index.css";
 
 const SignUpPage = () => {
@@ -8,6 +10,7 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
   const [submitError, showSubmitError] = useState(false);
   const [nameError, setNameError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
@@ -113,14 +116,23 @@ const SignUpPage = () => {
       <label htmlFor="password" className="input-label">
         PASSWORD
       </label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={onChangingPassword}
-        className="input-field"
-        onBlur={onChangePasswordBlur}
-      />
+      <div className="password-input-container">
+        <input
+          type={showPassword ? "text" : "password"}
+          id="password"
+          value={password}
+          onChange={onChangingPassword}
+          className="input-field"
+          onBlur={onChangePasswordBlur}
+        />
+        <span
+          className="toggle-password-icon"
+          onClick={() => setShowPassword((prev) => !prev)}
+          style={{ cursor: "pointer" }}
+        >
+          {showPassword ? <FaEyeSlash /> : <FaEye />}
+        </span>
+      </div>
       {passwordError && (
         <p className="error-text" style={{ color: "red", textAlign: "left" }}>
           {passwordError}
@@ -193,167 +205,3 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
-
-// import { useState } from "react";
-// import { Link, useHistory } from "react-router-dom";
-
-// import "./index.css";
-
-// const SignUpPage = () => {
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [submitError, showSubmitError] = useState(false);
-//   const [nameError, setNameError] = useState("");
-//   const [emailError, setEmailError] = useState("");
-//   const [passwordError, setPasswordError] = useState("");
-
-//   const history = useHistory();
-
-//   const onChangingName = (event) => {
-//     setName(event.target.value);
-//   };
-
-//   const onChangingEmail = (event) => {
-//     setEmail(event.target.value);
-//   };
-
-//   const onChangingPassword = (event) => {
-//     setPassword(event.target.value);
-//   };
-
-//   const onChangeBlur = () => {
-//     if (name.trim() === "") {
-//       setNameError("*Required");
-//     } else {
-//       setNameError("");
-//     }
-//   };
-//   const onChangeEmailBlur = () => {
-//     if (name.trim() === "") {
-//       setEmailError("*Required");
-//     } else {
-//       setEmailError("");
-//     }
-//   };
-
-//   const onChangePasswordBlur = () => {
-//     if (name.trim() === "") {
-//       setPasswordError("*Required");
-//     } else {
-//       setPasswordError("");
-//     }
-//   };
-
-//   const renderNameField = () => (
-//     <>
-//       <label htmlFor="name" className="input-label">
-//         NAME
-//       </label>
-//       <input
-//         className="input-field"
-//         type="text"
-//         id="name"
-//         value={name}
-//         onChange={onChangingName}
-//         onBlur={onChangeBlur}
-//       />
-//       {nameError && (
-//         <p style={{ color: "red", marginTop: "5px" }}>{nameError}</p>
-//       )}
-//     </>
-//   );
-
-//   const renderEmailField = () => (
-//     <>
-//       <label htmlFor="email" className="input-label">
-//         EMAIL
-//       </label>
-//       <input
-//         id="email"
-//         className="input-field"
-//         type="password"
-//         value={email}
-//         onChange={onChangingEmail}
-//         onBlur={onChangeEmailBlur}
-//       />
-//       {emailError && (
-//         <p style={{ color: "red", marginTop: "5px" }}>{nameError}</p>
-//       )}
-//     </>
-//   );
-
-//   const renderPasswordField = () => (
-//     <>
-//       <label htmlFor="password" className="input-label">
-//         PASSWORD
-//       </label>
-//       <input
-//         type="password"
-//         id="password"
-//         value={password}
-//         onChange={onChangingPassword}
-//         className="input-field"
-//         onBlur={onChangePasswordBlur}
-//       />
-//       {passwordError && (
-//         <p style={{ color: "red", marginTop: "5px" }}>{nameError}</p>
-//       )}
-//     </>
-//   );
-
-//   const onSubmitSuccess = () => {
-//     history.replace("/login");
-//   };
-
-//   const onSubmitFailure = () => {
-//     showSubmitError(true);
-//   };
-
-//   const onSubmitForm = async (event) => {
-//     event.preventDefault();
-//     const userDetails = { name, email, password };
-//     const options = {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(userDetails),
-//     };
-//     const url =
-//       "https://restaurant-mern-backend.onrender.com/api/register";
-//     const response = await fetch(url, options);
-//     console.log(response);
-//     if (response.ok) {
-//       onSubmitSuccess();
-//     } else {
-//       onSubmitFailure();
-//     }
-//   };
-
-//   return (
-//     <div className="background-container">
-//       <form className="card-container" onSubmit={onSubmitForm}>
-//         <h1 className="heading">SignUp</h1>
-//         <div className="input-container">{renderNameField()}</div>
-//         <br />
-//         <div className="input-container">{renderEmailField()}</div>
-//         <br />
-//         <div className="input-container">{renderPasswordField()}</div>
-//         <br />
-//         <button type="submit" className="signup-btn">
-//           SignUp
-//         </button>
-//         {submitError && <p style={{ color: "red" }}>*Bad Request</p>}
-//         <p>Already have an account?</p>
-//         <Link to="/login" style={{ textDecoration: "none" }}>
-//           <button type="button" className="login-btn">
-//             Login
-//           </button>
-//         </Link>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default SignUpPage;

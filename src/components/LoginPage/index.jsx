@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 import "./index.css";
@@ -8,6 +9,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [submitError, showSubmitError] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
 
   const navigate = useNavigate();
@@ -68,14 +70,23 @@ const LoginPage = () => {
       <label htmlFor="password" className="input-label">
         PASSWORD
       </label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={onChangingPassword}
-        className="input-field"
-        onBlur={onChangePasswordBlur}
-      />
+      <div className="password-input-container">
+        <input
+          type={showPassword ? "text" : "password"}
+          id="password"
+          value={password}
+          onChange={onChangingPassword}
+          className="input-field"
+          onBlur={onChangePasswordBlur}
+        />
+        <span
+          className="toggle-password-icon"
+          onClick={() => setShowPassword((prev) => !prev)}
+          style={{ cursor: "pointer" }}
+        >
+          {showPassword ? <FaEyeSlash /> : <FaEye />}
+        </span>
+      </div>
       {passwordError && (
         <p style={{ color: "red", marginTop: "5px" }}>{passwordError}</p>
       )}
@@ -98,6 +109,7 @@ const LoginPage = () => {
     console.log(data);
     if (response.ok) {
       onSubmitSuccess();
+      localStorage.setItem("user", data.name);
       localStorage.setItem("jwt_token", data.token);
       localStorage.setItem("userRole", data.role); // Save role
     } else {

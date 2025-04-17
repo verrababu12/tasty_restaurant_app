@@ -78,7 +78,7 @@
 }
 
 /* Restaurant Card */
-.restaurant-card {
+.restaurant-card-user {
   flex: 1 1 250px; /* Makes each card occupy only necessary space */
   max-width: 300px; /* Prevents cards from stretching too wide */
   padding: 12px;
@@ -94,7 +94,7 @@
 }
 
 /* Restaurant Image */
-.restaurant-image {
+.restaurant-image-users {
   width: 200px;
   height: 200px;
   border-radius: 4px;
@@ -132,9 +132,23 @@
     justify-content: center; /* Centers items on small screens */
   }
 
-  .restaurant-card {
+  .restaurant-card-user {
     flex: 1 1 180px; /* Adjusts card size for smaller screens */
     max-width: 200px;
     padding: 8px;
   }
+  .no-results-text {
+    font-family: "Bree Serif";
+    font-size: 28px;
+    color: #555;
+    margin-top: 30px;
+  }
+}
+
+.no-results-text {
+  font-family: "Bree Serif";
+  font-size: 38px;
+  color: #555;
+  margin-top: 30px;
+  margin-left: 440px;
 }

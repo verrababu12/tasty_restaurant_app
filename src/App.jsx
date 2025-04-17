@@ -9,6 +9,7 @@ import RestaurantDetails from "./components/RestaurantDetails";
 import AddProduct from "./components/AddProduct";
 import Cart from "./components/Cart";
 import EditProduct from "./components/EditProduct";
+import Profile from "./components/Profile";
 import CartContext from "./context/CartContext";
 import "./App.css";
 
@@ -101,6 +102,7 @@ const App = () => {
         <Route exact path="/restaurant/:id" element={<RestaurantDetails />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
+        <Route exact path="/profile" element={<Profile />} />
       </Routes>
     </CartContext.Provider>
   );

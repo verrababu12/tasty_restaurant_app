@@ -125,3 +125,20 @@
     height: 35px;
   }
 }
+.password-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.password-field {
+  width: 100%;
+  padding-right: 30px;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  right: 20px;
+  margin-top: 5px;
+  color: #0d0c0c;
+}
