@@ -21,7 +21,7 @@
   background-color: rgb(204, 218, 218);
   border-radius: 4px;
   width: 250px;
-  height: 260px;
+  height: 290px;
   padding: 16px;
 }
 .restaurant-image {
@@ -167,6 +167,10 @@
   .food-card img {
     width: 80px;
     height: 80px;
+  }
+  .restaurant-below-card {
+    height: 280px;
+    padding: 15px;
   }
 
   .restaurant-image {
