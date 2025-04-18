@@ -54,7 +54,7 @@ const LoginPage = () => {
       <input
         id="email"
         className="input-field"
-        type="password"
+        type="email"
         value={email}
         onChange={onChangingEmail}
         onBlur={onChangeEmailBlur}

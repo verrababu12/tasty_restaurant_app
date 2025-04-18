@@ -5,18 +5,29 @@
 }
 
 .restaurant-header {
-  background-color: #ffebcd; /* Background color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://res.cloudinary.com/daehuqvdc/image/upload/v1744943415/Cartoon_Black_Food_Poster_Background_Beef_Noodle_Cauliflower_Background_Image_And_Wallpaper_for_Free_Download_ldyame.jpg");
   color: white; /* Text color */
   text-align: center;
   padding: 30px 10px;
+  max-width: 1200px;
+  height: 300px;
   border-radius: 10px;
 }
-
+.restaurant-below-card {
+  background-color: rgb(204, 218, 218);
+  border-radius: 4px;
+  width: 250px;
+  height: 260px;
+  padding: 16px;
+}
 .restaurant-image {
-  width: 180px;
-  height: 180px;
+  width: 130px;
+  height: 120px;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .restaurant-category {

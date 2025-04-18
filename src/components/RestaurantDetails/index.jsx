@@ -56,16 +56,20 @@ const RestaurantDetails = () => {
       {restaurant ? (
         <div className="restaurant-details">
           <div className="restaurant-header">
-            <img
-              src={restaurant.image_url}
-              alt="restaurant"
-              className="restaurant-image"
-            />
-            <h2 className="restaurant-category">{restaurant.category}</h2>
-            <p className="restaurant-location">
-              Location: {restaurant.location}
-            </p>
-            <p className="restaurant-rating">Rating: {restaurant.rating} ⭐</p>
+            <div className="restaurant-below-card">
+              <img
+                src={restaurant.image_url}
+                alt="restaurant"
+                className="restaurant-image"
+              />
+              <h2 className="restaurant-category">{restaurant.category}</h2>
+              <p className="restaurant-location">
+                Location: {restaurant.location}
+              </p>
+              <p className="restaurant-rating">
+                Rating: {restaurant.rating} ⭐
+              </p>
+            </div>
           </div>
           <h3>Food Items:</h3>
           <div className="food-container">

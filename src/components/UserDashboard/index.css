@@ -133,8 +133,8 @@
   }
 
   .restaurant-card-user {
-    flex: 1 1 180px; /* Adjusts card size for smaller screens */
-    max-width: 200px;
+    flex: 1 1 250px; /* Adjusts card size for smaller screens */
+    max-width: 260px;
     padding: 8px;
   }
   .no-results-text {
@@ -151,4 +151,45 @@
   color: #555;
   margin-top: 30px;
   margin-left: 440px;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.pagination-button {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-button.active {
+  background-color: #0b69ff;
+  color: white;
+}
+.pagination-buttons {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.pagination-buttons button {
+  padding: 10px 15px;
+  margin: 0 5px;
+  background-color: #0b69ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination-buttons span {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 10px;
 }
