@@ -8,9 +8,16 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const handleGoToProfile = () => {
+    const previousOrder = JSON.parse(localStorage.getItem("recentOrder")) || {
+      items: [],
+      timestamp: "",
+    };
+
+    const combinedItems = [...previousOrder.items, ...cartList];
+
     const orderDetails = {
-      items: cartList,
-      timestamp: new Date().toLocaleString(), // Save date + time
+      items: combinedItems,
+      timestamp: new Date().toLocaleString(),
     };
 
     localStorage.setItem("recentOrder", JSON.stringify(orderDetails));
