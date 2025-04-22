@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import SignUpPage from "./components/SignUpPage";
 import LoginPage from "./components/LoginPage";
@@ -63,11 +66,14 @@ const App = () => {
   };
 
   const addCartItem = (product) => {
+    let isExistingProduct = false;
+
     setCartList((prevCartList) => {
       const productObject = prevCartList.find(
         (eachCartItem) => eachCartItem.id === product.id
       );
       if (productObject) {
+        isExistingProduct = true;
         return prevCartList.map((eachCartItem) =>
           eachCartItem.id === product.id
             ? {
@@ -79,6 +85,13 @@ const App = () => {
       }
       return [...prevCartList, product];
     });
+
+    // Toast should be outside so it doesn't run twice in dev
+    if (isExistingProduct) {
+      toast.info("Product quantity updated successfully");
+    } else {
+      toast.success("Product added successfully");
+    }
   };
 
   return (
@@ -104,35 +117,9 @@ const App = () => {
         <Route path="/edit-product/:id" element={<EditProduct />} />
         <Route exact path="/profile" element={<Profile />} />
       </Routes>
+      <ToastContainer position="top-center" autoClose={2000} />
     </CartContext.Provider>
   );
 };
 
 export default App;
-
-// import { Switch, Route } from "react-router-dom";
-
-// import signUpPage from "./components/signUpPage";
-// import LoginPage from "./components/LoginPage";
-// import Home from "./components/Home";
-// import AdminDashboard from "./components/AdminDashboard";
-// import UserDashboard from "./components/UserDashboard";
-// import RestaurantDetails from "./components/RestaurantDetails";
-// import AddProduct from "./components/AddProduct";
-// import Cart from "./components/Cart";
-// import "./App.css";
-
-// const App = () => (
-//   <Switch>
-//     <Route exact path="/" component={signUpPage} />
-//     <Route exact path="/login" component={LoginPage} />
-//     <Route exact path="/home" component={Home} />
-//     <Route exact path="/admin-dashboard" component={AdminDashboard} />
-//     <Route exact path="/user-dashboard" component={UserDashboard} />
-//     <Route exact path="/add-product" component={AddProduct} />
-//     <Route path="/restaurant/:id" component={RestaurantDetails} />
-//     <Route path="/cart" element={Cart} />
-//   </Switch>
-// );
-
-// export default App;

@@ -49,7 +49,7 @@ const AdminDashboard = () => {
   const fetchProducts = async () => {
     try {
       const response = await fetch(
-        "https://restaurant-mern-backend.onrender.com/api/products"
+        "https://restaurant-mern-backend.onrender.com/api/allProductsToAdmin"
       );
 
       if (!response.ok) {
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
 
       const data = await response.json();
       console.log(data);
-      setProducts(data.restaurants || []);
+      setProducts(data || []);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
