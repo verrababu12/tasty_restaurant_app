@@ -5,12 +5,14 @@ import { toast } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import SignUpPage from "./components/SignUpPage";
 import LoginPage from "./components/LoginPage";
+import { Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminDashboard from "./components/AdminDashboard";
 import UserDashboard from "./components/UserDashboard";
 import RestaurantDetails from "./components/RestaurantDetails";
 import AddProduct from "./components/AddProduct";
+import NotFound from "./components/NotFound";
 import Cart from "./components/Cart";
 import EditProduct from "./components/EditProduct";
 import Profile from "./components/Profile";
@@ -182,6 +184,8 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/bad-path" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/bad-path" replace />} />
       </Routes>
       <ToastContainer position="top-center" autoClose={2000} />
     </CartContext.Provider>
