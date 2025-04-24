@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import SignUpPage from "./components/SignUpPage";
 import LoginPage from "./components/LoginPage";
 import Home from "./components/Home";
+import ProtectedRoute from "./components/ProtectedRoute";
 import AdminDashboard from "./components/AdminDashboard";
 import UserDashboard from "./components/UserDashboard";
 import RestaurantDetails from "./components/RestaurantDetails";
@@ -106,16 +107,81 @@ const App = () => {
       }}
     >
       <Routes>
-        <Route exact path="/" element={<SignUpPage />} />
-        <Route exact path="/login" element={<LoginPage />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route exact path="/user-dashboard" element={<UserDashboard />} />
-        <Route exact path="/add-product" element={<AddProduct />} />
-        <Route exact path="/restaurant/:id" element={<RestaurantDetails />} />
-        <Route exact path="/cart" element={<Cart />} />
-        <Route path="/edit-product/:id" element={<EditProduct />} />
-        <Route exact path="/profile" element={<Profile />} />
+        <Route path="/" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+
+        {/* Protected routes: use ProtectedRoute inside element prop */}
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/user-dashboard"
+          element={
+            <ProtectedRoute>
+              <UserDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/add-product"
+          element={
+            <ProtectedRoute>
+              <AddProduct />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/restaurant/:id"
+          element={
+            <ProtectedRoute>
+              <RestaurantDetails />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/edit-product/:id"
+          element={
+            <ProtectedRoute>
+              <EditProduct />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <ToastContainer position="top-center" autoClose={2000} />
     </CartContext.Provider>
