@@ -9,6 +9,7 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("Fetching data");
     fetchUsers();
     fetchProducts();
   }, []);

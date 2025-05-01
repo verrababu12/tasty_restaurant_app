@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
@@ -16,7 +16,7 @@ const UserDashboard = () => {
   const [totalItems, setTotalItems] = useState(0); // Store total item count
   const [totalPages, setTotalPages] = useState(1); // Store total page count
 
-  const fetchRestaurants =useCallback(async () => {
+  const fetchRestaurants = useCallback(async () => {
     try {
       const response = await fetch(
         `https://restaurant-mern-backend.onrender.com/api/products?page=${currentPage}&limit=6&sort=${sortOrder}`
@@ -31,7 +31,7 @@ const UserDashboard = () => {
     } catch (error) {
       console.error("Error fetching restaurants:", error);
     }
-  },[currentPage, sortOrder]);
+  }, [currentPage, sortOrder]);
 
   useEffect(() => {
     fetchRestaurants();
@@ -116,7 +116,9 @@ const UserDashboard = () => {
             </Link>
           ))
         ) : (
-          <p className="no-results-text">No results found.</p>
+          <div className="no-results-container">
+            <p className="no-results-text">No results found.</p>
+          </div>
         )}
       </div>
 
