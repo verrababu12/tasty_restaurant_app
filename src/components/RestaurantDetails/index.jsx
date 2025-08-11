@@ -20,7 +20,7 @@ const RestaurantDetails = () => {
     const fetchRestaurantDetails = async () => {
       try {
         const response = await fetch(
-          `https://restaurant-mern-backend.onrender.com/api/products/${id}`
+          `https://my-restaurant-project-backend.onrender.com/api/products/${id}`
         );
         const data = await response.json();
 

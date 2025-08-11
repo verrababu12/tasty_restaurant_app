@@ -13,6 +13,7 @@ const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -144,38 +145,50 @@ const SignUpPage = () => {
   const onSubmitForm = async (event) => {
     event.preventDefault();
 
-    // Final validation before submission
+    // Validation
     if (name.trim() === "") {
       setNameError("*Name is required");
       return;
     }
-    if (email.trim() === "" || !validateEmail(email)) {
+    if (email.trim() === "") {
+      setEmailError("*Email is required");
+      return;
+    } else if (!validateEmail(email)) {
       setEmailError("*Enter a valid email address");
       return;
     }
-    if (password.trim() === "" || !validatePassword(password)) {
-      setPasswordError(
-        "*Password must be at least 8 characters with an uppercase letter, lowercase letter, number, and special character."
-      );
+    if (password.trim() === "") {
+      setPasswordError("*Password is required");
+      return;
+    } else if (!validatePassword(password)) {
+      setPasswordError("*Password must be at least 8 characters...");
       return;
     }
 
-    const userDetails = { name, email, password };
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userDetails),
-    };
+    setLoading(true);
 
-    const url = "https://restaurant-mern-backend.onrender.com/api/register";
-    const response = await fetch(url, options);
+    try {
+      const userDetails = { name, email, password };
+      const response = await fetch(
+        "https://my-restaurant-project-backend.onrender.com/api/users/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userDetails),
+        }
+      );
 
-    if (response.ok) {
-      navigate("/login");
-    } else {
+      if (response.ok) {
+        navigate("/login");
+      } else {
+        const data = await response.json();
+        showSubmitError(data.message || true);
+      }
+    } catch (error) {
+      console.error("Error:", error);
       showSubmitError(true);
+    } finally {
+      setLoading(false); // ALWAYS runs
     }
   };
 
@@ -189,8 +202,8 @@ const SignUpPage = () => {
         <br />
         <div className="input-container">{renderPasswordField()}</div>
         <br />
-        <button type="submit" className="signup-btn">
-          SignUp
+        <button type="submit" className="signup-btn" disabled={loading}>
+          {loading ? "Signing up..." : "SignUp"}
         </button>
         {submitError && <p className="error-text">*Bad Request</p>}
         <p>Already have an account?</p>
@@ -199,6 +212,11 @@ const SignUpPage = () => {
             Login
           </button>
         </Link>
+        {loading && (
+          <div className="loader-overlay">
+            <div className="loader"></div>
+          </div>
+        )}
       </form>
     </div>
   );

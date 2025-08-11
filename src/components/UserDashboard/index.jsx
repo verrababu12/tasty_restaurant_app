@@ -19,7 +19,7 @@ const UserDashboard = () => {
   const fetchRestaurants = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://restaurant-mern-backend.onrender.com/api/products?page=${currentPage}&limit=6&sort=${sortOrder}`
+        `https://my-restaurant-project-backend.onrender.com/api/products?page=${currentPage}&limit=6&sort=${sortOrder}`
       );
       const data = await response.json();
       console.log(data);

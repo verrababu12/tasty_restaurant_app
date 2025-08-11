@@ -19,7 +19,7 @@ const EditProduct = () => {
   const fetchProductDetails = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://restaurant-mern-backend.onrender.com/api/products/${id}`
+        `https://my-restaurant-project-backend.onrender.com/api/products/${id}`
       );
       const data = await response.json();
 
@@ -61,7 +61,7 @@ const EditProduct = () => {
 
     try {
       const response = await fetch(
-        `https://restaurant-mern-backend.onrender.com/api/${id}`,
+        `https://my-restaurant-project-backend.onrender.com/api/products/${id}`,
         {
           method: "PUT",
           headers: {

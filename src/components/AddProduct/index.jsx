@@ -48,7 +48,7 @@ const AddProduct = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://restaurant-mern-backend.onrender.com/api/add-products",
+        "https://my-restaurant-project-backend.onrender.com/api/products/add-products",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
     try {
       const response = await fetch(
-        "https://restaurant-mern-backend.onrender.com/api/users",
+        "https://my-restaurant-project-backend.onrender.com/api/users",
         {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
   const fetchProducts = async () => {
     try {
       const response = await fetch(
-        "https://restaurant-mern-backend.onrender.com/api/allProductsToAdmin"
+        "https://my-restaurant-project-backend.onrender.com/api/products/allProductsToAdmin"
       );
 
       if (!response.ok) {
@@ -73,7 +73,7 @@ const AdminDashboard = () => {
 
     try {
       const response = await fetch(
-        `https://restaurant-mern-backend.onrender.com/api/${productId}`,
+        `https://my-restaurant-project-backend.onrender.com/api/products/${productId}`,
         {
           method: "DELETE",
           headers: {
@@ -106,7 +106,7 @@ const AdminDashboard = () => {
 
     try {
       const response = await fetch(
-        `https://restaurant-mern-backend.onrender.com/api/users/${userId}/make-admin`,
+        `https://my-restaurant-project-backend.onrender.com/api/users/${userId}/make-admin`,
         {
           method: "PUT",
           headers: {

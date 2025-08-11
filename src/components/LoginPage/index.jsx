@@ -11,6 +11,7 @@ const LoginPage = () => {
   const [emailError, setEmailError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -95,6 +96,7 @@ const LoginPage = () => {
 
   const onSubmitForm = async (event) => {
     event.preventDefault();
+    setLoading(true);
     const userDetails = { email, password };
     const options = {
       method: "POST",
@@ -103,7 +105,8 @@ const LoginPage = () => {
       },
       body: JSON.stringify(userDetails),
     };
-    const url = "https://restaurant-mern-backend.onrender.com/api/login";
+    const url =
+      "https://my-restaurant-project-backend.onrender.com/api/users/login";
     const response = await fetch(url, options);
     const data = await response.json();
     console.log(data);
@@ -115,6 +118,7 @@ const LoginPage = () => {
     } else {
       onSubmitFailure();
     }
+    setLoading(false);
   };
 
   return (
@@ -135,6 +139,11 @@ const LoginPage = () => {
             SignUp
           </button>
         </Link>
+        {loading && (
+          <div className="loader-overlay">
+            <div className="loader"></div>
+          </div>
+        )}
       </form>
     </div>
   );
